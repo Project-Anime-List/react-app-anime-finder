@@ -7,23 +7,43 @@ import dummyImg from "../assets/dummy-image.jpg";
 const DetailsPage = () => {
   const [currentDetails, setCurrentDetails] = useState(null);
   let { listId } = useParams();
+  // Example solution with Promises
+  /*
   useEffect(() => {
-    try {
-      axios.get(`${API_URL}/${listId}`).then((res) => {
+    axios
+      .get(`${API_URL}/${listId}`)
+      .then((res) => {
         setCurrentDetails(res.data);
+      })
+      .catch((er) => {
+        console.log(er);
       });
-    } catch (er) {
-      console.log(er);
-    }
   }, [listId]);
+*/
+  // Example solution with async/await
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios.get(`${API_URL}/${listId}`);
+        console.log(result.data);
+        if (result.data) {
+          setCurrentDetails(result.data);
+        }
+      } catch (er) {
+        console.log(er);
+      }
+    };
+    fetchData();
+  }, [listId]);
+
   return (
     <div>
-      {currentDetails === null ? (
+      {!currentDetails ? (
         <h1>Loading...</h1>
       ) : (
         <div>
           <div className="imgContainer">
-            {!currentDetails.img ? (
+            {!currentDetails.image ? (
               <img src={dummyImg} />
             ) : (
               <img src={currentDetails.image} />
@@ -45,4 +65,5 @@ const DetailsPage = () => {
     </div>
   );
 };
+
 export default DetailsPage;

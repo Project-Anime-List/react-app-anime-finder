@@ -11,9 +11,11 @@ const List = () => {
   const navigate = useNavigate();
   const getData = async () => {
     try {
-      await axios.get(API_URL).then((res) => {
-        setCurrentList(res.data);
-      });
+      const result = await axios.get(API_URL);
+
+      if (result.data) {
+        setCurrentList(result.data);
+      }
     } catch (er) {
       console.log(er);
     }
