@@ -20,7 +20,22 @@ const DetailsPage = () => {
       {currentDetails === null ? (
         <h1>Loading...</h1>
       ) : (
-        <p>{currentDetails.name}</p>
+        <div>
+          <div className="imgContainer">
+            <img src={currentDetails.image} />
+          </div>
+          <div className="detailsInfoContainer">
+            <p>Name: {currentDetails.name}</p>
+            <p>Release-Date: {currentDetails.release_date}</p>
+            <p>Rating: {currentDetails.rating}</p>
+            <p>
+              Description:<br></br>{" "}
+              <span style={{ marginLeft: "10px" }}>
+                {currentDetails.description}
+              </span>
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );
