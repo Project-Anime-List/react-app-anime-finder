@@ -1,7 +1,11 @@
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 function App() {
   return (
     <>
-      <p>my App</p>
+      <Routes>
+        <Route path="/" element=<HomePage /> />
+      </Routes>
     </>
   );
 }
