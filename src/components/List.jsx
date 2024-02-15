@@ -14,7 +14,7 @@ const List = () => {
       const result = await axios.get(API_URL);
 
       if (result.data) {
-        setCurrentList(result.data);
+        setCurrentList(result.data.reverse());
       }
     } catch (er) {
       console.log(er);
@@ -36,6 +36,7 @@ const List = () => {
         console.log(er);
       });
   };
+
   return (
     <>
       <div>
