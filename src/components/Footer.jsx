@@ -1,6 +1,9 @@
-import Navbar from "./Navbar";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
-  return <Navbar />;
+  return (
+    <nav>
+      <Link to="/">Home</Link>
+    </nav>
+  );
 };
 export default Footer;

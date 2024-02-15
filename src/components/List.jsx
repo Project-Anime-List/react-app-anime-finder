@@ -20,6 +20,9 @@ const List = () => {
   const handleClick = (elem) => {
     navigate(`/details/${elem.id}`);
   };
+  const handleDelete = (elem) => {
+    axios.delete(`${API_URL}/${elem.id}`);
+  };
   return (
     <div className="listWrapper">
       {currentList === null ? (
@@ -43,6 +46,13 @@ const List = () => {
                 }}
               >
                 view details
+              </button>
+              <button
+                onClick={() => {
+                  handleDelete(elem);
+                }}
+              >
+                Delete
               </button>
             </div>
           );
