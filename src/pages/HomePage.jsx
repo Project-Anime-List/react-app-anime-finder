@@ -1,6 +1,9 @@
 import List from "../components/List";
-
 const HomePage = () => {
-  return <List />;
+  return (
+    <>
+      <List />
+    </>
+  );
 };
 export default HomePage;

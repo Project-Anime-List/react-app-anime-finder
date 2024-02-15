@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../Api";
+import dummyImg from "../assets/dummy-image.jpg";
 
 const DetailsPage = () => {
   const [currentDetails, setCurrentDetails] = useState(null);
@@ -22,7 +23,11 @@ const DetailsPage = () => {
       ) : (
         <div>
           <div className="imgContainer">
-            <img src={currentDetails.image} />
+            {!currentDetails.img ? (
+              <img src={dummyImg} />
+            ) : (
+              <img src={currentDetails.image} />
+            )}
           </div>
           <div className="detailsInfoContainer">
             <p>Name: {currentDetails.name}</p>
