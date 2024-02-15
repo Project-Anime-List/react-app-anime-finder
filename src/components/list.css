@@ -1,0 +1,12 @@
+.listWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.listContainer {
+  margin: 5px;
+}
+.animeImg {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
