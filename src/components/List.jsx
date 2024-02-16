@@ -9,6 +9,7 @@ import "./list.css";
 const List = () => {
   const [currentList, setCurrentList] = useState(null);
   const navigate = useNavigate();
+
   const getData = async () => {
     try {
       const result = await axios.get(API_URL);
@@ -20,12 +21,15 @@ const List = () => {
       console.log(er);
     }
   };
+
   useEffect(() => {
     getData();
   }, []);
+
   const handleClick = (elem) => {
     navigate(`/details/${elem.id}`);
   };
+
   const handleDelete = (elem) => {
     axios
       .delete(`${API_URL}/${elem.id}`)

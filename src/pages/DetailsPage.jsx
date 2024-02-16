@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../Api";
 import dummyImg from "../assets/dummy-image.jpg";
+import EditItem from "../components/EditItem";
 
 const DetailsPage = () => {
   const [currentDetails, setCurrentDetails] = useState(null);
-  let { listId } = useParams();
+  const { listId } = useParams();
   // Example solution with Promises
   /*
   useEffect(() => {
@@ -21,18 +22,17 @@ const DetailsPage = () => {
   }, [listId]);
 */
   // Example solution with async/await
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios.get(`${API_URL}/${listId}`);
-        console.log(result.data);
-        if (result.data) {
-          setCurrentDetails(result.data);
-        }
-      } catch (er) {
-        console.log(er);
+  const fetchData = async () => {
+    try {
+      const result = await axios.get(`${API_URL}/${listId}`);
+      if (result.data) {
+        setCurrentDetails(result.data);
       }
-    };
+    } catch (er) {
+      console.log(er);
+    }
+  };
+  useEffect(() => {
     fetchData();
   }, [listId]);
 
@@ -42,7 +42,7 @@ const DetailsPage = () => {
         <h1>Loading...</h1>
       ) : (
         <div>
-          <div className="imgContainer">
+          <div className="imgContainerdetailsPage">
             {!currentDetails.image ? (
               <img src={dummyImg} />
             ) : (
@@ -62,6 +62,7 @@ const DetailsPage = () => {
           </div>
         </div>
       )}
+      <EditItem listId={listId} fetchData={fetchData} />
     </div>
   );
 };
