@@ -5,6 +5,7 @@ import API_URL from "../Api";
 import dummyImg from "../assets/dummy-image.jpg";
 import EditItem from "../components/EditItem";
 import "./detailsPage.css";
+
 const DetailsPage = () => {
   const [currentDetails, setCurrentDetails] = useState(null);
   const { listId } = useParams();

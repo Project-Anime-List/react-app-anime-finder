@@ -6,11 +6,10 @@
   filter: invert(83%) sepia(45%) saturate(4623%) hue-rotate(341deg)
     brightness(102%) contrast(105%);
   font-size: 30px;
-  color: #d1d817;
+  color: orange;
   font-family: "Protest Revolution", sans-serif;
   font-weight: 700;
   font-style: normal;
-  border: 1px solid black;
   border-radius: 10px;
 }
 
