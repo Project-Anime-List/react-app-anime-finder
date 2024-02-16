@@ -10,6 +10,8 @@
   font-family: "Protest Revolution", sans-serif;
   font-weight: 700;
   font-style: normal;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .iconAddAnime img {

@@ -1,9 +1,7 @@
 .listWrapper {
   display: flex;
   flex-wrap: wrap;
-  width: 65vw;
-  background-color: rgba(103, 94, 94, 0.388);
-  border-radius: 25px;
+  width: 70vw;
   justify-content: center;
   align-items: center;
 }
