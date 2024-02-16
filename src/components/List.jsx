@@ -52,28 +52,39 @@ const List = () => {
           currentList.map((elem) => {
             return (
               <div key={elem.id} className="listContainer">
-                <div className="imgContainer">
+                <div
+                  className="imgContainer"
+                  onClick={() => {
+                    handleClick(elem);
+                  }}
+                >
                   {!elem.image ? (
                     <img className="animeImg" src={dummyImg} />
                   ) : (
                     <img src={elem.image} className="animeImg" />
                   )}
                 </div>
-                <p>name: {elem.name}</p>
-                <p>rating: {elem.rating}</p>
-                <button
+                <p
+                  className="animeDataName"
                   onClick={() => {
                     handleClick(elem);
                   }}
                 >
-                  view details
-                </button>
+                  {elem.name}
+                </p>
+                <p className="animeData">
+                  Rating<br></br> {elem.rating}
+                </p>
+                <p className="animeData">
+                  Aired on <br></br>
+                  {elem.release_date}
+                </p>
                 <button
                   onClick={() => {
                     handleDelete(elem);
                   }}
                 >
-                  Delete
+                  🗑️
                 </button>
               </div>
             );

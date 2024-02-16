@@ -1,20 +1,63 @@
 .listWrapper {
   display: flex;
   flex-wrap: wrap;
+  width: 65vw;
+  background-color: rgba(103, 94, 94, 0.388);
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
 }
 .listContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 3px;
+  margin: 5px;
+  border: 2px solid rgb(176, 165, 165);
+  border-radius: 15px;
+  box-shadow: 4px 4px 4px rgb(104, 96, 96);
+  background-color: rgb(237, 223, 223);
+
+  text-align: center;
+}
+.listContainer:hover {
+  scale: 1.06;
 }
 .imgContainer {
   width: 300px;
   height: 300px;
 }
+.imgContainer:hover {
+  cursor: pointer;
+  scale: 1.01;
+}
 .animeImg {
-  object-fit: fill;
+  object-fit: cover;
   width: 100%;
   height: 100%;
+  border-radius: 15px;
+}
+.animeData {
+  margin: 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.listContainer button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+.listContainer button:hover {
+  cursor: pointer;
+}
+.animeDataName {
+  margin: 10px;
+  font-size: 18px;
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.animeDataName:hover {
+  cursor: pointer;
+  scale: 1.2;
 }

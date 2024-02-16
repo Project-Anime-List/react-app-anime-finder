@@ -1,0 +1,9 @@
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footerContainer nav a {
+  text-decoration: none;
+  font-size: 30px;
+}

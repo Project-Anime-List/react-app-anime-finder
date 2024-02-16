@@ -42,6 +42,7 @@ const DetailsPage = () => {
         <h1>Loading...</h1>
       ) : (
         <div className="detailsContainer">
+          <EditItem listId={listId} fetchData={fetchData} />
           <div className="imgContainerdetailsPage">
             {!currentDetails.image ? (
               <img src={dummyImg} />
@@ -60,7 +61,6 @@ const DetailsPage = () => {
           </div>
         </div>
       )}
-      <EditItem listId={listId} fetchData={fetchData} />
     </div>
   );
 };

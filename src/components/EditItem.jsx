@@ -54,7 +54,7 @@ const EditItem = (props) => {
   return (
     <>
       <button onClick={toggleShowForm} className="iconAddAnime">
-        {showForm ? "Input new Anime Information" : "Edit Anime"}
+        {showForm ? "Close" : "Edit Anime Information"}
       </button>
 
       <div className={showForm ? "formContainer show" : "formContainer"}>

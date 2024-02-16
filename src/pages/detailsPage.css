@@ -22,21 +22,22 @@
   flex-direction: column;
   text-align: center;
   width: 40%;
-}
-.detailsInfoContainer span {
-  margin-top: 5px;
-  display: flex;
+  color: rgb(121, 16, 154);
 }
 .mainInfoName {
   font-size: 50px;
   font-weight: 900;
+  font-family: "Protest Revolution", sans-serif;
+  font-style: normal;
 }
 .mainInfo {
   font-size: 25px;
   font-weight: 900;
   margin: 0;
+  font-family: "Protest Revolution", sans-serif;
+  font-style: normal;
 }
 .mainInfoSubData {
   font-weight: 550;
-  font-size: 16px;
+  font-size: 20px;
 }

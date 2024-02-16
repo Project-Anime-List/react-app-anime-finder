@@ -5,7 +5,11 @@
   margin-left: 2vw;
   filter: invert(83%) sepia(45%) saturate(4623%) hue-rotate(341deg)
     brightness(102%) contrast(105%);
-  font-size: 18px;
+  font-size: 30px;
+  color: #d1d817;
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .iconAddAnime img {
@@ -23,30 +27,28 @@
   max-height: 0;
   visibility: hidden;
   transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  background-image: url("../assets/formBackground.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   border-radius: 15px;
   width: 60%;
-  display: flex;
-  align-items: end;
+  margin: 10px;
 }
 .formContainer.show {
+  background-image: url("../assets/formBackground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   visibility: visible;
   opacity: 1;
   transition: 0.5s ease-in-out;
   min-height: 500px;
   max-height: 500px;
+  display: flex;
+  align-items: end;
 }
 .addProduct {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 30vh;
   font-size: 18px;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
@@ -55,29 +57,38 @@
   flex-direction: column;
   gap: 10px;
   padding-top: 10px;
-  border: 1px solid white;
+  border: none;
   border-radius: 15px;
+  margin-bottom: 25px;
 }
 
 .addProduct legend {
   font-weight: bold;
 }
 
-.addProduct input,
-.addProduct textarea {
+.addProduct input {
   border-radius: 25px;
   margin-left: 10px;
   padding: 5px;
   border: none;
 }
-
+.addProduct textarea {
+  border-radius: 25px;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  width: 70%;
+  height: 30px;
+  resize: none;
+}
 .addProduct input {
   min-width: 4vw;
 }
 
 .addProduct label {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .addProduct button {
@@ -86,11 +97,12 @@
   box-shadow: inset -10px -10px 20px #000910, inset 10px 10px 20px #02233e;
   color: #fcfcfc;
   border-radius: 10px;
-  height: 7vh;
+  height: 5vh;
   width: 10vw;
   cursor: pointer;
   align-self: end;
   transition: 0.3s ease-in-out;
+  margin-left: 20px;
 }
 
 .addProduct button:hover {

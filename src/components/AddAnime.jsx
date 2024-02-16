@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./addAnime.css";
 import axios from "axios";
 import API_URL from "../Api";
+
 const AddAnime = (props) => {
   const [showForm, setShowForm] = useState(false);
   const [animeName, setAnimeName] = useState("");
@@ -33,7 +34,7 @@ const AddAnime = (props) => {
   return (
     <>
       <button onClick={toggleShowForm} className="iconAddAnime">
-        {showForm ? "Input Anime Data" : "Click here to add a new Anime"}
+        {showForm ? <span>Close</span> : <span>Add a new Anime</span>}
       </button>
 
       <div className={showForm ? "formContainer show" : "formContainer"}>
@@ -105,7 +106,9 @@ const AddAnime = (props) => {
               ></input>
             </label>
           </fieldset>
-          <button type="submit">Add Anime To List</button>
+          <div className="SubmitBtn">
+            <button type="submit">Add Anime</button>
+          </div>
         </form>
       </div>
     </>
