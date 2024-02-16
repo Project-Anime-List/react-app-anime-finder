@@ -44,21 +44,25 @@ const DetailsPage = () => {
       ) : (
         <div className="detailsContainer">
           <EditItem listId={listId} fetchData={fetchData} />
-          <div className="imgContainerdetailsPage">
-            {!currentDetails.image ? (
-              <img src={dummyImg} />
-            ) : (
-              <img src={currentDetails.image} />
-            )}
-          </div>
-          <div className="detailsInfoContainer">
-            <p className="mainInfoName">{currentDetails.name}</p>
-            <p className="mainInfo">Release-Date:</p>
-            <p className="mainInfoSubData"> {currentDetails.release_date}</p>
-            <p className="mainInfo">Rating</p>
-            <p className="mainInfoSubData"> {currentDetails.rating}</p>
-            <p className="mainInfo">Description</p>
-            <p className="mainInfoSubData">{currentDetails.description}</p>
+          <div className="detailsWrapper">
+            <div className="imgContainerdetailsPage">
+              {!currentDetails.image ? (
+                <img src={dummyImg} />
+              ) : (
+                <img src={currentDetails.image} />
+              )}
+            </div>
+            <div className="detailsInfoContainer">
+              <p className="mainInfoName">{currentDetails.name}</p>
+              <p className="mainInfo">Release-Date:</p>
+              <p className="mainInfoSubData"> {currentDetails.release_date}</p>
+              <p className="mainInfo">Rating</p>
+              <p className="mainInfoSubData"> {currentDetails.rating}</p>
+              <p className="mainInfo">Description</p>
+              <p className="mainInfoSubDataDescription">
+                {currentDetails.description}
+              </p>
+            </div>
           </div>
         </div>
       )}
