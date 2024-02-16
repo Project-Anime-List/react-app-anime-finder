@@ -1,0 +1,42 @@
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgContainerdetailsPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 700px;
+}
+.imgContainerdetailsPage img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.detailsInfoContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 40%;
+}
+.detailsInfoContainer span {
+  margin-top: 5px;
+  display: flex;
+}
+.mainInfoName {
+  font-size: 50px;
+  font-weight: 900;
+}
+.mainInfo {
+  font-size: 25px;
+  font-weight: 900;
+  margin: 0;
+}
+.mainInfoSubData {
+  font-weight: 550;
+  font-size: 16px;
+}

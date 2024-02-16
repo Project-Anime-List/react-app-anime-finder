@@ -43,9 +43,8 @@ const List = () => {
 
   return (
     <>
-      <div>
-        <AddAnime getData={getData} />
-      </div>
+      <AddAnime getData={getData} />
+
       <div className="listWrapper">
         {currentList === null ? (
           <h1>Loading...</h1>

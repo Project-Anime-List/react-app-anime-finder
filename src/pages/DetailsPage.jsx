@@ -4,7 +4,7 @@ import axios from "axios";
 import API_URL from "../Api";
 import dummyImg from "../assets/dummy-image.jpg";
 import EditItem from "../components/EditItem";
-
+import "./detailsPage.css";
 const DetailsPage = () => {
   const [currentDetails, setCurrentDetails] = useState(null);
   const { listId } = useParams();
@@ -41,7 +41,7 @@ const DetailsPage = () => {
       {!currentDetails ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
+        <div className="detailsContainer">
           <div className="imgContainerdetailsPage">
             {!currentDetails.image ? (
               <img src={dummyImg} />
@@ -50,15 +50,13 @@ const DetailsPage = () => {
             )}
           </div>
           <div className="detailsInfoContainer">
-            <p>Name: {currentDetails.name}</p>
-            <p>Release-Date: {currentDetails.release_date}</p>
-            <p>Rating: {currentDetails.rating}</p>
-            <p>
-              Description:<br></br>{" "}
-              <span style={{ marginLeft: "10px" }}>
-                {currentDetails.description}
-              </span>
-            </p>
+            <p className="mainInfoName">{currentDetails.name}</p>
+            <p className="mainInfo">Release-Date:</p>
+            <p className="mainInfoSubData"> {currentDetails.release_date}</p>
+            <p className="mainInfo">Rating</p>
+            <p className="mainInfoSubData"> {currentDetails.rating}</p>
+            <p className="mainInfo">Description</p>
+            <p className="mainInfoSubData">{currentDetails.description}</p>
           </div>
         </div>
       )}
