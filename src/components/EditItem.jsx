@@ -22,7 +22,7 @@ const EditItem = (props) => {
         setImgLink(res.data.image);
       })
       .catch((er) => {
-        console.log(er);
+        // console.log(er);
       });
     // eslint-disable-next-line react/prop-types
   }, [props.listId]);
@@ -47,7 +47,7 @@ const EditItem = (props) => {
         props.fetchData();
       });
     } catch (er) {
-      console.log(er);
+      // console.log(er);
     }
   };
 
