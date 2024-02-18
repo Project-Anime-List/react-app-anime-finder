@@ -24,7 +24,6 @@ const AddAnime = (props) => {
     };
     try {
       axios.post(API_URL, newAnimeObj).then(() => {
-        // eslint-disable-next-line react/prop-types
         props.getData();
       });
     } catch (er) {

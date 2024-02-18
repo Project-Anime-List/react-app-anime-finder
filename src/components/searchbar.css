@@ -1,0 +1,123 @@
+@media (min-width: 1800px) {
+  .searchbarcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .searchDataWrapper {
+    height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 10px 40px 10px;
+    background-color: rgb(237, 223, 223);
+    border-radius: 20px;
+  }
+  .searchDataContainer {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+  }
+  .searchDataContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .searchDataContainer img:hover {
+    scale: 1.1;
+    cursor: pointer;
+  }
+  .searchDataContainer p {
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    font-style: normal;
+  }
+  .searchDataContainer p:hover {
+    scale: 1.1;
+    cursor: pointer;
+  }
+  .searchLabel {
+    color: rgb(82, 225, 228);
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    font-style: normal;
+  }
+}
+
+@media (max-width: 1800px) {
+  .searchbarcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .searchDataWrapper {
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 10px 40px 10px;
+    background-color: rgb(237, 223, 223);
+    border-radius: 20px;
+  }
+  .searchDataContainer {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+  }
+  .searchDataContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .searchDataContainer img:hover {
+    scale: 1.1;
+    cursor: pointer;
+  }
+  .searchDataContainer p {
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    font-style: normal;
+  }
+  .searchDataContainer p:hover {
+    scale: 1.1;
+    cursor: pointer;
+  }
+  .searchLabel {
+    color: rgb(82, 225, 228);
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    font-style: normal;
+  }
+}
+
+@media (max-width: 1350px) {
+  .searchDataWrapper {
+    height: 125vh;
+  }
+}
+
+@media (max-width: 950px) {
+  .searchDataWrapper {
+    height: 180vh;
+  }
+}
+
+@media (max-width: 680px) {
+  .searchDataWrapper {
+    height: 260vh;
+  }
+}
+
+@media (max-width: 470px) {
+  .searchDataWrapper {
+    height: 690vh;
+  }
+}
