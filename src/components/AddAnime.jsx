@@ -30,6 +30,12 @@ const AddAnime = (props) => {
     } catch (er) {
       console.log(er);
     }
+    setShowForm("");
+    setAnimeName("");
+    setReleaseDate("");
+    setDescription("");
+    setRating("");
+    setImgLink("");
   };
   return (
     <>
