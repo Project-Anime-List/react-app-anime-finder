@@ -92,12 +92,12 @@
   border-radius: 15px;
   box-shadow: 4px 4px 4px rgb(104, 96, 96);
   background-color: rgb(237, 223, 223);
-  width: 20vw;
-  height: 10vh;
+  width: 16vw;
+  height: 7vh;
 }
 
 .favoriteImgContainer {
-  width: 30%;
+  width: 15%;
   object-fit: cover;
 }
 

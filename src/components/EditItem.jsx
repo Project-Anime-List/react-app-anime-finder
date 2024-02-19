@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import API_URL from "../Api";
 import axios from "axios";
 
@@ -9,10 +9,14 @@ const EditItem = (props) => {
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");
   const [imgLink, setImgLink] = useState("");
+  const animeNameRef = useRef(null);
+  const releaseDateRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const ratingRef = useRef(null);
+  const imgLinkRef = useRef(null);
 
   useEffect(() => {
     axios
-      // eslint-disable-next-line react/prop-types
       .get(`${API_URL}/${props.listId}`)
       .then((res) => {
         setAnimeName(res.data.name);
@@ -22,9 +26,8 @@ const EditItem = (props) => {
         setImgLink(res.data.image);
       })
       .catch((er) => {
-        // console.log(er);
+         console.log(er);
       });
-    // eslint-disable-next-line react/prop-types
   }, [props.listId]);
 
   const toggleShowForm = () => {
@@ -41,13 +44,11 @@ const EditItem = (props) => {
       release_date: releaseDate,
     };
     try {
-      // eslint-disable-next-line react/prop-types
       axios.put(`${API_URL}/${props.listId}`, editedAnimeObj).then(() => {
-        // eslint-disable-next-line react/prop-types
         props.fetchData();
       });
     } catch (er) {
-      // console.log(er);
+      console.log(er);
     }
   };
 
@@ -61,9 +62,13 @@ const EditItem = (props) => {
         <form className="addProduct" onSubmit={handleEditSubmit}>
           <fieldset>
             <legend>Anime information</legend>
-            <label>
+            <label onClick={() => {
+              animeNameRef.current.focus();
+            }}>
               Anime Name
+              </label>
               <input
+              ref={animeNameRef}
                 type="text"
                 placeholder="Enter Name"
                 name="Anime-name"
@@ -73,10 +78,13 @@ const EditItem = (props) => {
                   setAnimeName(e.target.value);
                 }}
               ></input>
-            </label>
-            <label>
+            <label onClick={() => {
+              ratingRef.current.focus();
+            }}>
               Rating
+              </label>
               <input
+              ref={ratingRef}
                 type="number"
                 placeholder="8.5"
                 name="Anime-rating"
@@ -85,10 +93,13 @@ const EditItem = (props) => {
                   setRating(e.target.value);
                 }}
               ></input>
-            </label>
-            <label>
+            <label onClick={() => {
+              releaseDateRef.current.focus();
+            }}>
               Release Date
+              </label>
               <input
+              ref={releaseDateRef}
                 type="text"
                 placeholder="2007-04-01"
                 value={releaseDate}
@@ -96,13 +107,16 @@ const EditItem = (props) => {
                   setReleaseDate(e.target.value);
                 }}
               ></input>
-            </label>
           </fieldset>
           <fieldset>
             <legend>Additional information</legend>
-            <label>
+            <label onClick={() => {
+              descriptionRef.current.focus();
+            }}>
               Description
+              </label>
               <textarea
+              ref={descriptionRef}
                 rows="5"
                 cols="50"
                 type="text"
@@ -113,10 +127,13 @@ const EditItem = (props) => {
                   setDescription(e.target.value);
                 }}
               ></textarea>
-            </label>
-            <label>
+            <label onClick={() => {
+              imgLinkRef.current.focus();
+            }}>
               Add Image
+              </label>
               <input
+              ref={imgLinkRef}
                 type="text"
                 placeholder="Image url"
                 value={imgLink}
@@ -124,7 +141,6 @@ const EditItem = (props) => {
                   setImgLink(e.target.value);
                 }}
               ></input>
-            </label>
           </fieldset>
           <button type="submit">Edit Anime</button>
         </form>
