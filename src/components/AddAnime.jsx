@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./addAnime.css";
 import axios from "axios";
 import API_URL from "../Api";
@@ -10,6 +10,13 @@ const AddAnime = (props) => {
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");
   const [imgLink, setImgLink] = useState("");
+  const animeNameRef = useRef(null);
+  const releaseDateRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const ratingRef = useRef(null);
+  const imgLinkRef = useRef(null);
+
+
   const toggleShowForm = () => {
     setShowForm(!showForm);
   };
@@ -46,9 +53,13 @@ const AddAnime = (props) => {
         <form className="addProduct" onSubmit={handleSubmit}>
           <fieldset>
             <legend>Anime information</legend>
-            <label>
+            <label onClick={() => {
+              animeNameRef.current.focus();
+            }}>
               Anime Name
+            </label>  
               <input
+              ref={animeNameRef}
                 type="text"
                 placeholder="Enter Name"
                 name="Anime-name"
@@ -58,10 +69,14 @@ const AddAnime = (props) => {
                   setAnimeName(e.target.value);
                 }}
               ></input>
-            </label>
-            <label>
+            
+            <label onClick={() => {
+              ratingRef.current.focus();
+            }}>
               Rating
+            </label>  
               <input
+              ref={ratingRef}
                 type="number"
                 placeholder="8.5"
                 name="Anime-rating"
@@ -70,10 +85,14 @@ const AddAnime = (props) => {
                   setRating(e.target.value);
                 }}
               ></input>
-            </label>
-            <label>
+            
+            <label onClick={() => {
+              releaseDateRef.current.focus();
+            }}>
               Release Date
+            </label> 
               <input
+              ref={releaseDateRef}
                 type="text"
                 placeholder="2007-04-01"
                 value={releaseDate}
@@ -81,13 +100,17 @@ const AddAnime = (props) => {
                   setReleaseDate(e.target.value);
                 }}
               ></input>
-            </label>
+            
           </fieldset>
           <fieldset>
-            <legend>Additional information</legend>
-            <label>
+            {/* <legend>Additional information</legend> */}
+            <label onClick={() => {
+              descriptionRef.current.focus();
+            }}>
               Description
+              </label>
               <textarea
+              ref={descriptionRef}
                 rows="5"
                 cols="50"
                 type="text"
@@ -98,10 +121,13 @@ const AddAnime = (props) => {
                   setDescription(e.target.value);
                 }}
               ></textarea>
-            </label>
-            <label>
+            <label onClick={() => {
+              imgLinkRef.current.focus();
+            }}>
               Add Image
+            </label>
               <input
+              ref={imgLinkRef }
                 type="text"
                 placeholder="Image url"
                 value={imgLink}
@@ -109,7 +135,6 @@ const AddAnime = (props) => {
                   setImgLink(e.target.value);
                 }}
               ></input>
-            </label>
           </fieldset>
           <div className="SubmitBtn">
             <button type="submit">Add Anime</button>

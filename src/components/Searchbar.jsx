@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "./searchbar.css";
 import { useNavigate } from "react-router-dom";
+
 const Searchbar = ({ currentList }) => {
   const [filteredList, setFilteredList] = useState(null);
   const [inputValue, setInputValue] = useState("");
