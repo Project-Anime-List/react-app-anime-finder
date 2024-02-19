@@ -59,3 +59,59 @@
   cursor: pointer;
   scale: 1.2;
 }
+
+.favoriteCardWrapper {
+display: flex;
+flex-wrap: wrap;
+}
+
+.favoriteCard {
+  display: flex;
+  
+  align-items: center;
+  margin: 5px;
+  border: 2px solid rgb(176, 165, 165);
+  border-radius: 15px;
+  box-shadow: 4px 4px 4px rgb(104, 96, 96);
+  background-color: rgb(237, 223, 223);
+  width: 20vw; 
+  height: 10vh;
+}
+
+.favoriteImgContainer {
+  width: 30%; 
+  object-fit: cover;
+}
+
+.favoriteImgContainer img {
+  
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.favoriteDetails {
+  padding: 10px;
+  width: 70%; 
+}
+
+.favoriteAnimeName {
+  margin: 0;
+  font-size: 14px;
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.removeFromFavoritesButton {
+  background-color: transparent;
+  border: none;
+  font-size: 12px; 
+  margin-top: 5px; 
+  cursor: pointer;
+}
+
+.removeFromFavoritesButton:hover {
+  text-decoration: underline;
+}
