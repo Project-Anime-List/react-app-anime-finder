@@ -59,32 +59,49 @@
   cursor: pointer;
   scale: 1.2;
 }
-
+.burgerMenuContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: sticky;
+  top: 20px;
+}
+.burgerMenuContainer button {
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+}
 .favoriteCardWrapper {
-display: flex;
-flex-wrap: wrap;
+  display: flex;
+  position: sticky;
+  top: 50px;
+  flex-direction: column;
+  width: 100%;
 }
 
 .favoriteCard {
   display: flex;
-  
+
   align-items: center;
   margin: 5px;
   border: 2px solid rgb(176, 165, 165);
   border-radius: 15px;
   box-shadow: 4px 4px 4px rgb(104, 96, 96);
   background-color: rgb(237, 223, 223);
-  width: 20vw; 
+  width: 20vw;
   height: 10vh;
 }
 
 .favoriteImgContainer {
-  width: 30%; 
+  width: 30%;
   object-fit: cover;
 }
 
 .favoriteImgContainer img {
-  
   width: 100%;
   overflow: hidden;
   border-top-left-radius: 15px;
@@ -93,7 +110,7 @@ flex-wrap: wrap;
 
 .favoriteDetails {
   padding: 10px;
-  width: 70%; 
+  width: 70%;
 }
 
 .favoriteAnimeName {
@@ -107,8 +124,8 @@ flex-wrap: wrap;
 .removeFromFavoritesButton {
   background-color: transparent;
   border: none;
-  font-size: 12px; 
-  margin-top: 5px; 
+  font-size: 12px;
+  margin-top: 5px;
   cursor: pointer;
 }
 

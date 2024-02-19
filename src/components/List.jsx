@@ -9,10 +9,11 @@ import "./list.css";
 
 const List = () => {
   const [currentList, setCurrentList] = useState(null);
+  const [displayFavourites, setDisplayFavourites] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
 
-    function addToFavorites(elem) {
+  function addToFavorites(elem) {
     setFavorites((prevFavorites) => [...prevFavorites, elem]);
   }
 
@@ -36,7 +37,7 @@ const List = () => {
     navigate(`/details/${elem.id}`);
   };
 
-    function removeFromFavorites(elem) {
+  function removeFromFavorites(elem) {
     const newList = favorites.filter((item) => item.id !== elem.id);
     setFavorites(newList);
   }
@@ -51,100 +52,124 @@ const List = () => {
         console.log(er);
       });
   };
-
+  const handleFavourites = () => {
+    setDisplayFavourites(!displayFavourites);
+  };
   return (
     <>
       <AddAnime getData={getData} />
-
-      <div className="favoriteCardWrapper">
-      {favorites.map((elem) => {
-  return (
-    <div key={elem.id} className="favoriteCard">
-      <div
-        className="favoriteImgContainer"
-        onClick={() => {
-          handleClick(elem);
-        }}
-      >
-        {!elem.image ? (
-          <img className="favoriteAnimeImg" src={dummyImg} alt="Favorite Anime" />
-        ) : (
-          <img src={elem.image} className="favoriteAnimeImg" alt="Favorite Anime" />
-        )}
-      </div>
-      <div className="favoriteDetails">
-        <p
-          className="favoriteAnimeName"
-          onClick={() => {
-            handleClick(elem);
-          }}
-        >
-          {elem.name}
-        </p>
+      <Searchbar currentList={currentList} setCurrentList={setCurrentList} />
+      <div className="burgerMenuContainer">
         <button
-          className="removeFromFavoritesButton"
+          className="burgerMenu"
           onClick={() => {
-            removeFromFavorites(elem);
+            handleFavourites();
           }}
         >
-          Remove from Favorites
+          See Favourites
         </button>
       </div>
-    </div>
-  );
-})}
-</div>
-      <Searchbar currentList={currentList} setCurrentList={setCurrentList} />
-      <div className="listWrapper">
-        {currentList === null ? (
-          <h1>Loading...</h1>
+      <div className="favoriteCardWrapper">
+        {!displayFavourites ? (
+          <p>{""}</p>
         ) : (
-         <>
-          {currentList.map((elem) => {
-            let isFavorite = false;
-
-            for (let i = 0; i < favorites.length; i++) {
-              if (elem.id === favorites[i].id) {
-                isFavorite = true;
-                break;
-              }
-            }
+          favorites.map((elem) => {
             return (
-              <div key={elem.id} className="listContainer">
+              <div key={elem.id} className="favoriteCard">
                 <div
-                  className="imgContainer"
+                  className="favoriteImgContainer"
                   onClick={() => {
                     handleClick(elem);
                   }}
                 >
                   {!elem.image ? (
-                    <img className="animeImg" src={dummyImg} />
+                    <img
+                      className="favoriteAnimeImg"
+                      src={dummyImg}
+                      alt="Favorite Anime"
+                    />
                   ) : (
-                    <img src={elem.image} className="animeImg" />
+                    <img
+                      src={elem.image}
+                      className="favoriteAnimeImg"
+                      alt="Favorite Anime"
+                    />
                   )}
                 </div>
-                <p
-                  className="animeDataName"
-                  onClick={() => {
-                    handleClick(elem);
-                  }}
-                >
-                  {elem.name}
-                </p>
-                <p className="animeData">
-                  Rating<br></br> {elem.rating}
-                </p>
-                <p className="animeData">
-                  Aired on <br></br>
-                  {elem.release_date}
-                </p>
-                <button
-                  onClick={() => {
-                    handleDelete(elem);
-                  }}
-                >
-                  🗑️
-                </button>
+                <div className="favoriteDetails">
+                  <p
+                    className="favoriteAnimeName"
+                    onClick={() => {
+                      handleClick(elem);
+                    }}
+                  >
+                    {elem.name}
+                  </p>
+                  <button
+                    className="removeFromFavoritesButton"
+                    onClick={() => {
+                      removeFromFavorites(elem);
+                    }}
+                  >
+                    Remove from Favorites
+                  </button>
+                </div>
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      <div className="listWrapper">
+        {currentList === null ? (
+          <h1>Loading...</h1>
+        ) : (
+          <>
+            {currentList.map((elem) => {
+              let isFavorite = false;
+
+              for (let i = 0; i < favorites.length; i++) {
+                if (elem.id === favorites[i].id) {
+                  isFavorite = true;
+                  break;
+                }
+              }
+              return (
+                <div key={elem.id} className="listContainer">
+                  <div
+                    className="imgContainer"
+                    onClick={() => {
+                      handleClick(elem);
+                    }}
+                  >
+                    {!elem.image ? (
+                      <img className="animeImg" src={dummyImg} />
+                    ) : (
+                      <img src={elem.image} className="animeImg" />
+                    )}
+                  </div>
+                  <p
+                    className="animeDataName"
+                    onClick={() => {
+                      handleClick(elem);
+                    }}
+                  >
+                    {elem.name}
+                  </p>
+                  <p className="animeData">
+                    Rating<br></br> {elem.rating}
+                  </p>
+                  <p className="animeData">
+                    Aired on <br></br>
+                    {elem.release_date}
+                  </p>
+                  <button
+                    onClick={() => {
+                      handleDelete(elem);
+                    }}
+                  >
+                    🗑️
+                  </button>
                   <button
                     onClick={() => {
                       isFavorite
@@ -154,18 +179,13 @@ const List = () => {
                   >
                     {isFavorite ? "Remove from" : "Add To"} Favorites
                   </button>
-              </div>
-            );
-          })}
-
-
-
-
-         </>  
+                </div>
+              );
+            })}
+          </>
         )}
       </div>
     </>
   );
 };
 export default List;
-
