@@ -9,7 +9,12 @@ import "./list.css";
 
 const List = () => {
   const [currentList, setCurrentList] = useState(null);
+  const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
+
+    function addToFavorites(elem) {
+    setFavorites((prevFavorites) => [...prevFavorites, elem]);
+  }
 
   const getData = async () => {
     try {
@@ -31,6 +36,11 @@ const List = () => {
     navigate(`/details/${elem.id}`);
   };
 
+    function removeFromFavorites(elem) {
+    const newList = favorites.filter((item) => item.id !== elem.id);
+    setFavorites(newList);
+  }
+
   const handleDelete = (elem) => {
     axios
       .delete(`${API_URL}/${elem.id}`)
@@ -45,12 +55,60 @@ const List = () => {
   return (
     <>
       <AddAnime getData={getData} />
+
+      <div className="favoriteCardWrapper">
+      {favorites.map((elem) => {
+  return (
+    <div key={elem.id} className="favoriteCard">
+      <div
+        className="favoriteImgContainer"
+        onClick={() => {
+          handleClick(elem);
+        }}
+      >
+        {!elem.image ? (
+          <img className="favoriteAnimeImg" src={dummyImg} alt="Favorite Anime" />
+        ) : (
+          <img src={elem.image} className="favoriteAnimeImg" alt="Favorite Anime" />
+        )}
+      </div>
+      <div className="favoriteDetails">
+        <p
+          className="favoriteAnimeName"
+          onClick={() => {
+            handleClick(elem);
+          }}
+        >
+          {elem.name}
+        </p>
+        <button
+          className="removeFromFavoritesButton"
+          onClick={() => {
+            removeFromFavorites(elem);
+          }}
+        >
+          Remove from Favorites
+        </button>
+      </div>
+    </div>
+  );
+})}
+</div>
       <Searchbar currentList={currentList} setCurrentList={setCurrentList} />
       <div className="listWrapper">
         {currentList === null ? (
           <h1>Loading...</h1>
         ) : (
-          currentList.map((elem) => {
+         <>
+          {currentList.map((elem) => {
+            let isFavorite = false;
+
+            for (let i = 0; i < favorites.length; i++) {
+              if (elem.id === favorites[i].id) {
+                isFavorite = true;
+                break;
+              }
+            }
             return (
               <div key={elem.id} className="listContainer">
                 <div
@@ -87,12 +145,27 @@ const List = () => {
                 >
                   🗑️
                 </button>
+                  <button
+                    onClick={() => {
+                      isFavorite
+                        ? removeFromFavorites(elem)
+                        : addToFavorites(elem);
+                    }}
+                  >
+                    {isFavorite ? "Remove from" : "Add To"} Favorites
+                  </button>
               </div>
             );
-          })
+          })}
+
+
+
+
+         </>  
         )}
       </div>
     </>
   );
 };
 export default List;
+
