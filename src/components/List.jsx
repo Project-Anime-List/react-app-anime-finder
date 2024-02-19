@@ -1,6 +1,7 @@
 import API_URL from "../Api";
 import dummyImg from "../assets/dummy-image.jpg";
 import AddAnime from "./AddAnime";
+import Searchbar from "./Searchbar";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -93,7 +94,7 @@ const List = () => {
   );
 })}
 </div>
-
+      <Searchbar currentList={currentList} setCurrentList={setCurrentList} />
       <div className="listWrapper">
         {currentList === null ? (
           <h1>Loading...</h1>
