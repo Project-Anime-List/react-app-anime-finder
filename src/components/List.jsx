@@ -13,10 +13,6 @@ const List = () => {
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
 
-  function addToFavorites(elem) {
-    setFavorites((prevFavorites) => [...prevFavorites, elem]);
-  }
-
   const getData = async () => {
     try {
       const result = await axios.get(API_URL);
@@ -37,10 +33,14 @@ const List = () => {
     navigate(`/details/${elem.id}`);
   };
 
-  function removeFromFavorites(elem) {
+  const addToFavorites = (elem) => {
+    setFavorites((prevFavorites) => [...prevFavorites, elem]);
+  };
+
+  const removeFromFavorites = (elem) => {
     const newList = favorites.filter((item) => item.id !== elem.id);
     setFavorites(newList);
-  }
+  };
 
   const handleDelete = (elem) => {
     axios
