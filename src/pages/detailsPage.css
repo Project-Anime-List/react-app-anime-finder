@@ -3,17 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../assets/project-bg.jpg");
-  background-size: cover;
+  background-color: #3a3232;
 }
 .detailsWrapper {
-  background-color: rgb(237, 223, 223);
   border-radius: 20px;
   width: 50svw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.617);
 }
 .imgContainerdetailsPage {
   display: flex;
@@ -31,6 +30,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
   width: 40%;
 }
 .mainInfoName {
@@ -38,7 +38,8 @@
   font-weight: 900;
   font-family: "Protest Revolution", sans-serif;
   font-style: normal;
-  color: rgb(122, 10, 142);
+  color: aliceblue;
+  border-bottom: 3px solid white;
 }
 .mainInfo {
   font-size: 25px;
@@ -46,22 +47,26 @@
   margin: 0;
   font-family: "Protest Revolution", sans-serif;
   font-style: normal;
-  color: rgb(122, 10, 142);
+  color: aliceblue;
+  border-bottom: 3px solid white;
 }
 .mainInfoSubData {
   font-weight: bold;
   font-size: 25px;
+  color: aliceblue;
 }
 .mainInfoSubDataDescription {
   text-align: start;
   font-size: 20px;
   font-weight: bold;
+
+  color: aliceblue;
+  width: 30dvw;
 }
 
 @media (max-width: 900px) {
   .detailsContainer {
-    background-image: url("../assets/project-bg.jpg");
-    background-size: cover;
+    background-color: #44221b;
   }
 
   .imgContainerdetailsPage {
@@ -76,7 +81,6 @@
     font-weight: 900;
     font-family: "Protest Revolution", sans-serif;
     font-style: normal;
-    color: rgb(122, 10, 142);
   }
   .mainInfoSubDataDescription {
     text-align: start;

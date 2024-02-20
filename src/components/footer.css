@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(201, 181, 98);
+  background-color: #44221b;
 }
 .footerContainer nav a {
   text-decoration: none;

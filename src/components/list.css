@@ -8,31 +8,27 @@
 .listContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: 5px;
-  border: 2px solid rgb(176, 165, 165);
-  border-radius: 15px;
-  box-shadow: 4px 4px 4px rgb(104, 96, 96);
-  background-color: rgb(237, 223, 223);
-
+  height: 500px;
+  width: 300px;
   text-align: center;
+  color: aliceblue;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .listContainer:hover {
   scale: 1.06;
 }
-.imgContainer {
-  width: 300px;
-  height: 300px;
-}
-.imgContainer:hover {
-  cursor: pointer;
-  scale: 1.01;
+.dataContainer {
+  width: 100%;
+  height: 25%;
+  background-color: rgba(0, 0, 0, 0.78);
 }
 .animeImg {
   object-fit: contain;
-  width: 100%;
-  height: 100%;
   border-radius: 15px;
 }
 .animeData {
@@ -43,14 +39,23 @@
 .listContainer button {
   background-color: transparent;
   border: none;
-  font-size: 20px;
+  font-size: 30px;
+  color: white;
 }
+.listBtns {
+  display: flex;
+  background-color: #070707;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .listContainer button:hover {
   cursor: pointer;
 }
 .animeDataName {
   margin: 10px;
-  font-size: 18px;
+  width: fit-content;
+  font-size: 25px;
   font-family: "Protest Revolution", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -59,15 +64,24 @@
   cursor: pointer;
   scale: 1.2;
 }
-.burgerMenuContainer {
-  width: 100%;
+.animeDataNameContainer {
   display: flex;
-  justify-content: flex-start;
-  position: sticky;
-  top: 20px;
+  justify-content: center;
+}
+.animeDataContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.burgerMenuContainer {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 180px;
+  right: 0;
 }
 .burgerMenuContainer button {
   border: none;
+  margin-right: 10px;
   background-color: transparent;
   font-size: 25px;
   font-family: "Protest Revolution", sans-serif;
@@ -75,35 +89,54 @@
   cursor: pointer;
   color: rgb(255, 255, 255);
 }
+.burgerMenuContainer button:hover {
+  scale: 1.2;
+}
 .favoriteCardWrapper {
   display: flex;
-  position: sticky;
-  top: 50px;
+  position: fixed;
+  top: 250px;
+  right: 15px;
   flex-direction: column;
-  width: 100%;
+  width: 11dvw;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
 }
-
+.favoriteCardContainer {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  object-fit: cover;
+  margin: 20px;
+}
+.favoriteCardContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
 .favoriteCard {
   display: flex;
-
   align-items: center;
   margin: 5px;
   border: 2px solid rgb(176, 165, 165);
   border-radius: 15px;
   box-shadow: 4px 4px 4px rgb(104, 96, 96);
   background-color: rgb(237, 223, 223);
-  width: 16vw;
+  width: 10vw;
   height: 7vh;
 }
 
 .favoriteImgContainer {
-  width: 15%;
-  object-fit: cover;
+  width: 30%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .favoriteImgContainer img {
   width: 100%;
-  overflow: hidden;
+  height: 100%;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 }
