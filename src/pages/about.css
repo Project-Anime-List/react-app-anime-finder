@@ -1,0 +1,43 @@
+.aboutPageWrapper {
+  top: 0px;
+  height: 90dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3a3232;
+  color: aliceblue;
+}
+.aboutPageWrapper a {
+  color: aliceblue;
+  text-decoration: none;
+  border-bottom: 2px solid aliceblue;
+  font-size: 22px;
+}
+.aboutPageContainer {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.617);
+  height: 100%;
+  width: 50%;
+}
+.aboutHeader {
+  font-size: 50px;
+  font-weight: 900;
+  font-family: "Protest Revolution", sans-serif;
+  font-style: normal;
+}
+.aboutMain {
+  font-size: 25px;
+  font-weight: 900;
+  font-family: "Protest Revolution", sans-serif;
+  font-style: normal;
+}
+.aboutPageDescription {
+  width: 70%;
+  font-size: 20px;
+}
