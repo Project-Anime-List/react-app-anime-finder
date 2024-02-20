@@ -1,18 +1,47 @@
 .navWrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 100px;
-  background-color: rgb(201, 181, 98);
+  background-color: #44221b;
+  position: sticky;
+  top: 0;
 }
 .navContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
-.navContainer p {
+.navContainer a {
+  height: 100%;
   font-size: 70px;
   font-family: "Protest Revolution", sans-serif;
   font-weight: 800;
   font-style: normal;
+  color: rgb(215, 212, 212);
+}
+.CompanyName {
+  font-size: 50px;
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  width: 20%;
+  color: rgb(215, 212, 212);
+  position: absolute;
+}
+@media (max-width: 950px) {
+  .navContainer {
+    justify-content: space-evenly;
+  }
+  .navContainer a {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .CompanyName {
+    font-size: 30px;
+    margin-right: 5px;
+  }
 }
