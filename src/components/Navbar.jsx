@@ -7,14 +7,12 @@ const Navbar = () => {
         Otaku-Mania
       </Link>
       <nav className="navContainer">
-        {/* <div className="nav"> */}
         <Link to="/" style={{ textDecoration: "none" }}>
           Home
         </Link>
         <Link to="/about" style={{ textDecoration: "none" }}>
           About
         </Link>
-        {/* </div> */}
       </nav>
     </div>
   );

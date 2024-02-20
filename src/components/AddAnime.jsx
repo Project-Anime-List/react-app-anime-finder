@@ -107,7 +107,6 @@ const AddAnime = (props) => {
             ></input>
           </fieldset>
           <fieldset>
-            {/* <legend>Additional information</legend> */}
             <label
               onClick={() => {
                 descriptionRef.current.focus();
