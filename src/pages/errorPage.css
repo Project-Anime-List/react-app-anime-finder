@@ -4,9 +4,8 @@
 }
 .errorPageWrapper {
   position: relative;
-  top: -22px;
   background-color: #3a3232;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

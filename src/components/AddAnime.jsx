@@ -84,6 +84,8 @@ const AddAnime = (props) => {
               placeholder="8.5"
               name="Anime-rating"
               value={rating}
+              min={0}
+              max={10}
               onChange={(e) => {
                 setRating(e.target.value);
               }}
@@ -99,7 +101,7 @@ const AddAnime = (props) => {
             <input
               ref={releaseDateRef}
               type="text"
-              placeholder="2007-04-01"
+              placeholder="01-04-2007"
               value={releaseDate}
               onChange={(e) => {
                 setReleaseDate(e.target.value);
