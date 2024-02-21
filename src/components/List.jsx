@@ -57,133 +57,140 @@ const List = () => {
   };
   return (
     <>
-      <AddAnime getData={getData} />
-      <Searchbar currentList={currentList} setCurrentList={setCurrentList} />
-      <div className="burgerMenuContainer">
-        <button
-          className="burgerMenu"
-          onClick={() => {
-            handleFavourites();
-          }}
-        >
-          See Favourites
-        </button>
-      </div>
-      <div className="favoriteCardWrapper">
-        {!displayFavourites
-          ? favorites.map((elem) => {
-              return (
-                <div className="favoriteCardContainer" key={elem.id}>
-                  <img src={elem.image} />
-                </div>
-              );
-            })
-          : favorites.map((elem) => {
-              return (
-                <div key={elem.id} className="favoriteCard">
-                  <div
-                    className="favoriteImgContainer"
-                    onClick={() => {
-                      handleClick(elem);
-                    }}
-                  >
-                    <img
-                      src={elem.image}
-                      className="favoriteAnimeImg"
-                      alt="Favorite Anime"
-                    />
-                  </div>
-                  <div className="favoriteDetails">
-                    <p
-                      className="favoriteAnimeName"
-                      onClick={() => {
-                        handleClick(elem);
-                      }}
-                    >
-                      {elem.name}
-                    </p>
-                    <button
-                      className="removeFromFavoritesButton"
-                      onClick={() => {
-                        removeFromFavorites(elem);
-                      }}
-                    >
-                      Remove from Favorites
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-      </div>
+      <div className="mainDataWrapperWrapper">
+        <div className="favMainContainer">
+          <AddAnime getData={getData} />
+          <Searchbar
+            currentList={currentList}
+            setCurrentList={setCurrentList}
+          />
 
-      <div className="listWrapper">
-        {!currentList ? (
-          <h1>Loading...</h1>
-        ) : (
-          <>
-            {currentList.map((elem) => {
-              let isFavorite = false;
-
-              for (let i = 0; i < favorites.length; i++) {
-                if (elem.id === favorites[i].id) {
-                  isFavorite = true;
-                  break;
-                }
-              }
-              return (
-                <div
-                  key={elem.id}
-                  className="listContainer"
-                  style={{
-                    backgroundImage: elem.image
-                      ? `url(${elem.image})`
-                      : `url(${dummyImg})`,
-                  }}
-                >
-                  <div className="listBtns">
-                    <button
-                      onClick={() => {
-                        handleDelete(elem);
-                      }}
-                    >
-                      x
-                    </button>
-                    <button
-                      onClick={() => {
-                        isFavorite
-                          ? removeFromFavorites(elem)
-                          : addToFavorites(elem);
-                      }}
-                    >
-                      {isFavorite ? "-" : "+"}
-                    </button>
-                  </div>
-                  <div className="dataContainer">
-                    <div className="animeDataNameContainer">
-                      <p
-                        className="animeDataName"
+          <div className="favoriteCardWrapper">
+            <div className="burgerMenuContainer">
+              <button
+                className="burgerMenu"
+                onClick={() => {
+                  handleFavourites();
+                }}
+              >
+                See Favourites
+              </button>
+            </div>
+            {!displayFavourites
+              ? favorites.map((elem) => {
+                  return (
+                    <div className="favoriteCardContainer" key={elem.id}>
+                      <img src={elem.image} />
+                    </div>
+                  );
+                })
+              : favorites.map((elem) => {
+                  return (
+                    <div key={elem.id} className="favoriteCard">
+                      <div
+                        className="favoriteImgContainer"
                         onClick={() => {
                           handleClick(elem);
                         }}
                       >
-                        {elem.name}
-                      </p>
+                        <img
+                          src={elem.image}
+                          className="favoriteAnimeImg"
+                          alt="Favorite Anime"
+                        />
+                      </div>
+                      <div className="favoriteDetails">
+                        <p
+                          className="favoriteAnimeName"
+                          onClick={() => {
+                            handleClick(elem);
+                          }}
+                        >
+                          {elem.name}
+                        </p>
+                        <button
+                          className="removeFromFavoritesButton"
+                          onClick={() => {
+                            removeFromFavorites(elem);
+                          }}
+                        >
+                          Remove from Favorites
+                        </button>
+                      </div>
                     </div>
-                    <div className="animeDataContainer">
-                      <p className="animeData">
-                        Rating<br></br> {elem.rating}
-                      </p>
-                      <p className="animeData">
-                        Aired on <br></br>
-                        {elem.release_date}
-                      </p>
+                  );
+                })}
+          </div>
+        </div>
+        <div className="listWrapper">
+          {!currentList ? (
+            <h1>Loading...</h1>
+          ) : (
+            <>
+              {currentList.map((elem) => {
+                let isFavorite = false;
+
+                for (let i = 0; i < favorites.length; i++) {
+                  if (elem.id === favorites[i].id) {
+                    isFavorite = true;
+                    break;
+                  }
+                }
+                return (
+                  <div
+                    key={elem.id}
+                    className="listContainer"
+                    style={{
+                      backgroundImage: elem.image
+                        ? `url(${elem.image})`
+                        : `url(${dummyImg})`,
+                    }}
+                  >
+                    <div className="listBtns">
+                      <button
+                        onClick={() => {
+                          handleDelete(elem);
+                        }}
+                      >
+                        x
+                      </button>
+                      <button
+                        onClick={() => {
+                          isFavorite
+                            ? removeFromFavorites(elem)
+                            : addToFavorites(elem);
+                        }}
+                      >
+                        {isFavorite ? "-" : "+"}
+                      </button>
+                    </div>
+                    <div className="dataContainer">
+                      <div className="animeDataNameContainer">
+                        <p
+                          className="animeDataName"
+                          onClick={() => {
+                            handleClick(elem);
+                          }}
+                        >
+                          {elem.name}
+                        </p>
+                      </div>
+                      <div className="animeDataContainer">
+                        <p className="animeData">
+                          Rating<br></br> {elem.rating}
+                        </p>
+                        <p className="animeData">
+                          Aired on <br></br>
+                          {elem.release_date}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </>
-        )}
+                );
+              })}
+            </>
+          )}
+        </div>
       </div>
     </>
   );
