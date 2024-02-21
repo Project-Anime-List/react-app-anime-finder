@@ -2,6 +2,7 @@ import API_URL from "../Api";
 import dummyImg from "../assets/dummy-image.jpg";
 import AddAnime from "./AddAnime";
 import Searchbar from "./Searchbar";
+import Favourite from "./Favourite";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -29,6 +30,17 @@ const List = () => {
     getData();
   }, []);
 
+  const handleDelete = (elem) => {
+    axios
+      .delete(`${API_URL}/${elem.id}`)
+      .then(() => {
+        getData();
+      })
+      .catch((er) => {
+        console.log(er);
+      });
+  };
+
   const handleClick = (elem) => {
     navigate(`/details/${elem.id}`);
   };
@@ -42,86 +54,25 @@ const List = () => {
     setFavorites(newList);
   };
 
-  const handleDelete = (elem) => {
-    axios
-      .delete(`${API_URL}/${elem.id}`)
-      .then(() => {
-        getData();
-      })
-      .catch((er) => {
-        console.log(er);
-      });
-  };
   const handleFavourites = () => {
     setDisplayFavourites(!displayFavourites);
   };
   return (
     <>
       <div className="mainDataWrapperWrapper">
-        <div className="favMainContainer">
-          <AddAnime getData={getData} />
-          <Searchbar
-            currentList={currentList}
-            setCurrentList={setCurrentList}
-          />
+        <AddAnime getData={getData} />
+        <Searchbar currentList={currentList} setCurrentList={setCurrentList} />
 
-          <div className="favoriteCardWrapper">
-            <div className="burgerMenuContainer">
-              <button
-                className="burgerMenu"
-                onClick={() => {
-                  handleFavourites();
-                }}
-              >
-                See Favourites
-              </button>
-            </div>
-            {!displayFavourites
-              ? favorites.map((elem) => {
-                  return (
-                    <div className="favoriteCardContainer" key={elem.id}>
-                      <img src={elem.image} />
-                    </div>
-                  );
-                })
-              : favorites.map((elem) => {
-                  return (
-                    <div key={elem.id} className="favoriteCard">
-                      <div
-                        className="favoriteImgContainer"
-                        onClick={() => {
-                          handleClick(elem);
-                        }}
-                      >
-                        <img
-                          src={elem.image}
-                          className="favoriteAnimeImg"
-                          alt="Favorite Anime"
-                        />
-                      </div>
-                      <div className="favoriteDetails">
-                        <p
-                          className="favoriteAnimeName"
-                          onClick={() => {
-                            handleClick(elem);
-                          }}
-                        >
-                          {elem.name}
-                        </p>
-                        <button
-                          className="removeFromFavoritesButton"
-                          onClick={() => {
-                            removeFromFavorites(elem);
-                          }}
-                        >
-                          Remove from Favorites
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-          </div>
+        <div className="favoriteCardWrapper">
+          <Favourite
+            handleFavourites={handleFavourites}
+            handleClick={handleClick}
+            displayFavourites={displayFavourites}
+            favorites={favorites}
+            removeFromFavorites={removeFromFavorites}
+          />
         </div>
+
         <div className="listWrapper">
           {!currentList ? (
             <h1>Loading...</h1>
