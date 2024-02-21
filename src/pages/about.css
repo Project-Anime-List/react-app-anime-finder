@@ -1,6 +1,5 @@
 .aboutPageWrapper {
-  top: 0px;
-  height: 90dvh;
+  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,15 +13,13 @@
   font-size: 22px;
 }
 .aboutPageContainer {
-  width: fit-content;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
   align-content: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.617);
-  height: 100%;
+  height: fit-content;
   width: 50%;
 }
 .aboutHeader {
