@@ -18,11 +18,15 @@
 }
 .navContainer a {
   height: 100%;
-  font-size: 70px;
+  font-size: 40px;
   font-family: "Protest Revolution", sans-serif;
   font-weight: 800;
   font-style: normal;
   color: rgb(215, 212, 212);
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 .CompanyName {
   font-size: 50px;
@@ -32,6 +36,7 @@
   width: 20%;
   color: rgb(215, 212, 212);
   position: absolute;
+  margin-right: 30px;
 }
 @media (max-width: 950px) {
   .navContainer {
@@ -43,7 +48,7 @@
     align-items: center;
   }
   .CompanyName {
-    font-size: 30px;
+    font-size: 50px;
     margin-right: 5px;
   }
 }
