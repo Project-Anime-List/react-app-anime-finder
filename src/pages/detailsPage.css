@@ -18,13 +18,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 700px;
-  height: 700px;
+  width: 800px;
+  height: 800px;
 }
 .imgContainerdetailsPage img {
   border-radius: 20px;
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 .detailsInfoContainer {
   display: flex;
