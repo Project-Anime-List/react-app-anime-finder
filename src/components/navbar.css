@@ -6,6 +6,8 @@
   background-color: #44221b;
   position: sticky;
   top: 0;
+  z-index: 10;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.606);
 }
 .navContainer {
   display: flex;
