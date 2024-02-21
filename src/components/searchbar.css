@@ -16,18 +16,22 @@
   .searchDataWrapper {
     height: 80vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     margin: 20px 10px 40px 10px;
     background-color: rgb(237, 223, 223);
     border-radius: 20px;
     position: relative;
     z-index: 1;
+    width: 70%;
+    overflow: hidden;
   }
   .searchDataContainer {
     text-align: center;
     width: 200px;
     height: 200px;
-    margin: 10px;
+    margin: 35px;
   }
   .searchDataContainer img {
     width: 100%;
@@ -65,20 +69,30 @@
     justify-content: center;
     align-items: center;
   }
-
-  .searchDataWrapper {
-    height: 100vh;
+  .searchbarWrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .searchDataWrapper {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     margin: 20px 10px 40px 10px;
     background-color: rgb(237, 223, 223);
     border-radius: 20px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: 70%;
   }
   .searchDataContainer {
     text-align: center;
-    width: 200px;
+    width: fit-content;
     height: 200px;
-    margin: 10px;
+    margin: 30px;
   }
   .searchDataContainer img {
     width: 100%;
