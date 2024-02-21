@@ -20,3 +20,7 @@ https://github.com/Project-Anime-List/react-app-anime-finder
 # API Repo
 
 https://json-anime-api.adaptable.app/anime-list
+
+# Link to project
+
+https://otaku-mania-project.netlify.app
