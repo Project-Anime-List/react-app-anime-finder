@@ -5,7 +5,12 @@
     justify-content: center;
     align-items: center;
   }
-
+  .searchbarWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .searchbarcontainer input {
     width: 30vw;
     height: 3vh;
@@ -73,6 +78,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
   .searchDataWrapper {
     height: fit-content;
