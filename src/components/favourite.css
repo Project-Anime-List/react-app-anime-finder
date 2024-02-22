@@ -1,4 +1,4 @@
-.burgerMenuContainer button {
+.burgerMenuContainer .burgerMenu {
   border: none;
   margin-top: 10px;
   height: 60px;
@@ -13,7 +13,9 @@
   color: black;
   box-shadow: 0px 5px 10px 1px #0000008c;
 }
-
+.burgerMenuContainer .burgerMenu:hover {
+  background-color: rgba(240, 248, 255, 0.683);
+}
 .favoriteCardContainer {
   width: 100px;
   height: 100px;
