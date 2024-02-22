@@ -5,11 +5,15 @@ import API_URL from "../Api";
 
 const AddAnime = (props) => {
   const [showForm, setShowForm] = useState(false);
-  const [animeName, setAnimeName] = useState("");
-  const [releaseDate, setReleaseDate] = useState("");
-  const [description, setDescription] = useState("");
-  const [rating, setRating] = useState("");
-  const [imgLink, setImgLink] = useState("");
+
+  const [anime, setAnime] = useState({
+    animeName: "",
+    releaseDate: "",
+    description: "",
+    rating: "",
+    imgLink: "",
+  });
+
   const animeNameRef = useRef(null);
   const releaseDateRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -22,11 +26,11 @@ const AddAnime = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let newAnimeObj = {
-      name: animeName,
-      image: imgLink,
-      description: description,
-      rating: rating,
-      release_date: releaseDate,
+      name: anime.animeName,
+      image: anime.imgLink,
+      description: anime.description,
+      rating: anime.rating,
+      release_date: anime.releaseDate,
     };
     try {
       axios.post(API_URL, newAnimeObj).then(() => {
@@ -35,12 +39,14 @@ const AddAnime = (props) => {
     } catch (er) {
       console.log(er);
     }
-    setShowForm("");
-    setAnimeName("");
-    setReleaseDate("");
-    setDescription("");
-    setRating("");
-    setImgLink("");
+    setShowForm(false);
+    setAnime({
+      animeName: "",
+      releaseDate: "",
+      description: "",
+      rating: "",
+      imgLink: "",
+    });
   };
   return (
     <>
@@ -65,9 +71,12 @@ const AddAnime = (props) => {
               placeholder="Enter Name"
               name="Anime-name"
               required
-              value={animeName}
+              value={anime.animeName}
               onChange={(e) => {
-                setAnimeName(e.target.value);
+                setAnime((prev) => ({
+                  ...prev,
+                  animeName: e.target.value,
+                }));
               }}
             ></input>
 
@@ -83,11 +92,14 @@ const AddAnime = (props) => {
               type="number"
               placeholder="8.5"
               name="Anime-rating"
-              value={rating}
+              value={anime.rating}
               min={0}
               max={10}
               onChange={(e) => {
-                setRating(e.target.value);
+                setAnime((prev) => ({
+                  ...prev,
+                  rating: e.target.value,
+                }));
               }}
             ></input>
 
@@ -102,9 +114,12 @@ const AddAnime = (props) => {
               ref={releaseDateRef}
               type="text"
               placeholder="01-04-2007"
-              value={releaseDate}
+              value={anime.releaseDate}
               onChange={(e) => {
-                setReleaseDate(e.target.value);
+                setAnime((prev) => ({
+                  ...prev,
+                  releaseDate: e.target.value,
+                }));
               }}
             ></input>
           </fieldset>
@@ -123,9 +138,12 @@ const AddAnime = (props) => {
               type="text"
               placeholder="Enter a Description"
               name="description"
-              value={description}
+              value={anime.description}
               onChange={(e) => {
-                setDescription(e.target.value);
+                setAnime((prev) => ({
+                  ...prev,
+                  description: e.target.value,
+                }));
               }}
             ></textarea>
             <label
@@ -139,9 +157,12 @@ const AddAnime = (props) => {
               ref={imgLinkRef}
               type="text"
               placeholder="Image url"
-              value={imgLink}
+              value={anime.imgLink}
               onChange={(e) => {
-                setImgLink(e.target.value);
+                setAnime((prev) => ({
+                  ...prev,
+                  imgLink: e.target.value,
+                }));
               }}
             ></input>
           </fieldset>

@@ -4,11 +4,14 @@ import axios from "axios";
 
 const EditItem = (props) => {
   const [showForm, setShowForm] = useState(false);
-  const [animeName, setAnimeName] = useState("");
-  const [releaseDate, setReleaseDate] = useState("");
-  const [description, setDescription] = useState("");
-  const [rating, setRating] = useState("");
-  const [imgLink, setImgLink] = useState("");
+  const [anime, setAnime] = useState({
+    animeName: "",
+    releaseDate: "",
+    description: "",
+    rating: "",
+    imgLink: "",
+  });
+
   const animeNameRef = useRef(null);
   const releaseDateRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -19,14 +22,16 @@ const EditItem = (props) => {
     axios
       .get(`${API_URL}/${props.listId}`)
       .then((res) => {
-        setAnimeName(res.data.name);
-        setReleaseDate(res.data.release_date);
-        setDescription(res.data.description);
-        setRating(res.data.rating);
-        setImgLink(res.data.image);
+        setAnime({
+          animeName: res.data.name,
+          releaseDate: res.data.release_date,
+          description: res.data.description,
+          rating: res.data.rating,
+          imgLink: res.data.image,
+        });
       })
       .catch((er) => {
-         console.log(er);
+        console.log(er);
       });
   }, [props.listId]);
 
@@ -37,11 +42,11 @@ const EditItem = (props) => {
   const handleEditSubmit = (e) => {
     e.preventDefault();
     let editedAnimeObj = {
-      name: animeName,
-      image: imgLink,
-      description: description,
-      rating: rating,
-      release_date: releaseDate,
+      name: anime.animeName,
+      image: anime.imgLink,
+      description: anime.description,
+      rating: anime.rating,
+      release_date: anime.releaseDate,
     };
     try {
       axios.put(`${API_URL}/${props.listId}`, editedAnimeObj).then(() => {
@@ -50,6 +55,7 @@ const EditItem = (props) => {
     } catch (er) {
       console.log(er);
     }
+    setShowForm(false);
   };
 
   return (
@@ -62,85 +68,110 @@ const EditItem = (props) => {
         <form className="addProduct" onSubmit={handleEditSubmit}>
           <fieldset>
             <legend>Anime information</legend>
-            <label onClick={() => {
-              animeNameRef.current.focus();
-            }}>
+            <label
+              onClick={() => {
+                animeNameRef.current.focus();
+              }}
+            >
               Anime Name
-              </label>
-              <input
+            </label>
+            <input
               ref={animeNameRef}
-                type="text"
-                placeholder="Enter Name"
-                name="Anime-name"
-                required
-                value={animeName}
-                onChange={(e) => {
-                  setAnimeName(e.target.value);
-                }}
-              ></input>
-            <label onClick={() => {
-              ratingRef.current.focus();
-            }}>
+              type="text"
+              placeholder="Enter Name"
+              name="Anime-name"
+              required
+              value={anime.animeName}
+              onChange={(e) => {
+                setAnime((prev) => ({
+                  ...prev,
+                  animeName: e.target.value,
+                }));
+              }}
+            ></input>
+            <label
+              onClick={() => {
+                ratingRef.current.focus();
+              }}
+            >
               Rating
-              </label>
-              <input
+            </label>
+            <input
               ref={ratingRef}
-                type="number"
-                placeholder="8.5"
-                name="Anime-rating"
-                value={rating}
-                onChange={(e) => {
-                  setRating(e.target.value);
-                }}
-              ></input>
-            <label onClick={() => {
-              releaseDateRef.current.focus();
-            }}>
+              type="number"
+              placeholder="8.5"
+              name="Anime-rating"
+              value={anime.rating}
+              onChange={(e) => {
+                setAnime((prev) => ({
+                  ...prev,
+                  rating: e.target.value,
+                }));
+              }}
+            ></input>
+            <label
+              onClick={() => {
+                releaseDateRef.current.focus();
+              }}
+            >
               Release Date
-              </label>
-              <input
+            </label>
+            <input
               ref={releaseDateRef}
-                type="text"
-                placeholder="2007-04-01"
-                value={releaseDate}
-                onChange={(e) => {
-                  setReleaseDate(e.target.value);
-                }}
-              ></input>
+              type="text"
+              placeholder="2007-04-01"
+              value={anime.releaseDate}
+              onChange={(e) => {
+                setAnime((prev) => ({
+                  ...prev,
+                  releaseDate: e.target.value,
+                }));
+              }}
+            ></input>
           </fieldset>
           <fieldset>
             <legend>Additional information</legend>
-            <label onClick={() => {
-              descriptionRef.current.focus();
-            }}>
+            <label
+              onClick={() => {
+                descriptionRef.current.focus();
+              }}
+            >
               Description
-              </label>
-              <textarea
+            </label>
+            <textarea
               ref={descriptionRef}
-                rows="5"
-                cols="50"
-                type="text"
-                placeholder="Enter a Description"
-                name="description"
-                value={description}
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
-              ></textarea>
-            <label onClick={() => {
-              imgLinkRef.current.focus();
-            }}>
+              rows="5"
+              cols="50"
+              type="text"
+              placeholder="Enter a Description"
+              name="description"
+              value={anime.description}
+              onChange={(e) => {
+                setAnime((prev) => ({
+                  ...prev,
+                  description: e.target.value,
+                }));
+              }}
+            ></textarea>
+            <label
+              onClick={() => {
+                imgLinkRef.current.focus();
+              }}
+            >
               Add Image
-              </label>
-              <input
+            </label>
+            <input
               ref={imgLinkRef}
-                type="text"
-                placeholder="Image url"
-                value={imgLink}
-                onChange={(e) => {
-                  setImgLink(e.target.value);
-                }}
-              ></input>
+              type="text"
+              placeholder="Image url"
+              value={anime.imgLink}
+              onChange={(e) => {
+                setAnime((prev) => ({
+                  ...prev,
+                  imgLink: e.target.value,
+                }));
+              }}
+            ></input>
           </fieldset>
           <button type="submit">Edit Anime</button>
         </form>

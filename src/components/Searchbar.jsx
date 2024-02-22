@@ -27,14 +27,17 @@ const Searchbar = ({ currentList }) => {
   return (
     <div className="searchbarWrapper">
       <div className="searchbarcontainer">
-        <label
-          className="searchLabel"
-          onClick={() => {
-            searchInputRef.current.focus();
-          }}
-        >
-          {SEARCH_LABEL}
-        </label>
+        <div className="searchLabelContainer">
+          <label
+            className="searchLabel"
+            onClick={() => {
+              searchInputRef.current.focus();
+            }}
+          >
+            {SEARCH_LABEL}
+          </label>
+        </div>
+
         <input
           type="search"
           ref={searchInputRef}
@@ -44,11 +47,9 @@ const Searchbar = ({ currentList }) => {
           }}
         />
       </div>
-      {inputValue ? (
+      {inputValue && (
         <div className="searchDataWrapper">
-          {!filteredList ? (
-            <p>loading...</p>
-          ) : (
+          {filteredList &&
             filteredList.map((elem) => {
               return (
                 <div key={elem.id} className="searchDataContainer">
@@ -67,10 +68,9 @@ const Searchbar = ({ currentList }) => {
                   />
                 </div>
               );
-            })
-          )}
+            })}
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

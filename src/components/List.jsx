@@ -115,6 +115,12 @@ const List = () => {
                         {isFavorite ? "-" : "+"}
                       </button>
                     </div>
+                    <div
+                      className="clickableDiv"
+                      onClick={() => {
+                        navigate(`/details/${elem.id}`);
+                      }}
+                    ></div>
                     <div className="dataContainer">
                       <div className="animeDataNameContainer">
                         <p

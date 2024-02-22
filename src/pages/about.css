@@ -11,6 +11,9 @@
   text-decoration: none;
   border-bottom: 2px solid aliceblue;
   font-size: 22px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 .aboutPageContainer {
   display: flex;
@@ -30,11 +33,14 @@
 }
 .aboutMain {
   font-size: 25px;
-  font-weight: 900;
-  font-family: "Protest Revolution", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 .aboutPageDescription {
   width: 70%;
   font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
