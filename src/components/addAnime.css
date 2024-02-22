@@ -17,6 +17,10 @@
   box-shadow: 0px 5px 10px 1px #00000080;
 }
 
+.iconAddAnime:hover {
+  background-color: #0606068b;
+}
+
 .iconAddAnime img {
   width: 40px;
   transform: scale(1);
