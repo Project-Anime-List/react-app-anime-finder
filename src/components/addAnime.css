@@ -1,17 +1,19 @@
 .iconAddAnime {
-  border: none;
-  background-color: Transparent;
+  background-color: #060606b7;
+  margin-top: 10px;
+  height: 80px;
+  width: 350px;
+  border-radius: 40px;
   cursor: pointer;
-  margin-left: 2vw;
+  border: none;
   font-size: 30px;
   color: aliceblue;
-  font-family: "Protest Revolution", sans-serif;
   font-weight: 700;
   font-style: normal;
-  border-radius: 10px;
-}
-.iconAddAnime:hover {
-  scale: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 10px 1px #00000080;
 }
 
 .iconAddAnime img {
@@ -31,7 +33,7 @@
   transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
   border-radius: 15px;
   width: 60%;
-  margin: 10px;
+  margin: 20px;
 }
 .formContainer.show {
   background-image: url("../assets/formBackground.png");
@@ -44,7 +46,7 @@
   min-height: 500px;
   max-height: 500px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
 }
 .addProduct {

@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 5px;
+  margin: 10px;
   height: 500px;
   width: 300px;
   text-align: center;
@@ -21,6 +21,13 @@
 }
 .listContainer:hover {
   scale: 1.06;
+}
+.listContainer .clickableDiv {
+  width: 100%;
+  height: 100%;
+}
+.listContainer .clickableDiv:hover {
+  cursor: pointer;
 }
 .dataContainer {
   width: 100%;
@@ -38,7 +45,7 @@
 }
 .listContainer button {
   background-color: transparent;
-  border: 1px solid rgba(193, 199, 205, 0.56);
+  border: none;
   font-size: 30px;
   color: white;
 }
@@ -64,7 +71,6 @@
 }
 .animeDataName:hover {
   cursor: pointer;
-  scale: 1.2;
 }
 .animeDataNameContainer {
   display: flex;

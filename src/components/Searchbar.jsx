@@ -44,11 +44,9 @@ const Searchbar = ({ currentList }) => {
           }}
         />
       </div>
-      {inputValue ? (
+      {inputValue && (
         <div className="searchDataWrapper">
-          {!filteredList ? (
-            <p>loading...</p>
-          ) : (
+          {filteredList &&
             filteredList.map((elem) => {
               return (
                 <div key={elem.id} className="searchDataContainer">
@@ -67,10 +65,9 @@ const Searchbar = ({ currentList }) => {
                   />
                 </div>
               );
-            })
-          )}
+            })}
         </div>
-      ) : null}
+      )}
     </div>
   );
 };
