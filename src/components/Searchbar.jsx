@@ -27,14 +27,17 @@ const Searchbar = ({ currentList }) => {
   return (
     <div className="searchbarWrapper">
       <div className="searchbarcontainer">
-        <label
-          className="searchLabel"
-          onClick={() => {
-            searchInputRef.current.focus();
-          }}
-        >
-          {SEARCH_LABEL}
-        </label>
+        <div className="searchLabelContainer">
+          <label
+            className="searchLabel"
+            onClick={() => {
+              searchInputRef.current.focus();
+            }}
+          >
+            {SEARCH_LABEL}
+          </label>
+        </div>
+
         <input
           type="search"
           ref={searchInputRef}

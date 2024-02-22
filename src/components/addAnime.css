@@ -8,7 +8,8 @@
   border: none;
   font-size: 30px;
   color: aliceblue;
-  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   font-style: normal;
   display: flex;
   justify-content: center;
