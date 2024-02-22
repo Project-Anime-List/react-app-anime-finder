@@ -43,10 +43,10 @@
   border-bottom: 3px solid white;
 }
 .mainInfo {
-  font-size: 25px;
-  font-weight: 900;
+  font-size: 30px;
   margin: 0;
-  font-family: "Protest Revolution", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
   font-style: normal;
   color: aliceblue;
   border-bottom: 3px solid white;
@@ -60,7 +60,6 @@
   text-align: start;
   font-size: 20px;
   font-weight: bold;
-
   color: aliceblue;
   width: 30dvw;
 }
