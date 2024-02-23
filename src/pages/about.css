@@ -44,3 +44,8 @@
   font-weight: 300;
   font-style: normal;
 }
+@media (max-width: 1300px) {
+  .aboutPageWrapper {
+    height: fit-content;
+  }
+}
